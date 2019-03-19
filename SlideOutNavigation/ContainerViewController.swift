@@ -31,8 +31,39 @@ import QuartzCore
 
 class ContainerViewController: UIViewController {
   
+  var centerNavigationController: UINavigationController!
+  var centerViewController: CenterViewController!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    centerViewController = UIStoryboard.centerViewController()
+    centerViewController.delegate = self
+    
+    centerNavigationController = UINavigationController(rootViewController: centerViewController)
+    view.addSubview(centerNavigationController.view)
+    addChildViewController(centerNavigationController)
+    centerNavigationController.didMove(toParentViewController: self)
+  }
+}
+
+extension ContainerViewController: CenterViewControllerDelegate {
+  
+  func toggleLeftPanel() {
+  }
+  
+  func toggleRightPanel() {
+  }
+  
+  func addLeftPanelViewController() {
+  }
+  
+  func addRightPanelViewController() {
+  }
+  
+  func animateLeftPanel(shouldExpand: Bool) {
+  }
+  
+  func animateRightPanel(shouldExpand: Bool) {
   }
 }
 
